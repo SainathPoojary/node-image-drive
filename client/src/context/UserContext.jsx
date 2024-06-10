@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const UserContext = createContext();
 
-axios.defaults.baseURL = "http://localhost:4000/api/";
+axios.defaults.baseURL = "https://image-drive-server.vercel.app/api";
 
 export const UserProvider = ({ children }) => {
   // States

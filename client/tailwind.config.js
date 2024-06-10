@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss'
+
 export default {
   content: [
     "./index.html",
@@ -15,7 +17,18 @@ export default {
       }
 
     },
-  },
-  plugins: [],
+  },  
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-none': {
+          '&::-webkit-scrollbar': {
+            'display': 'none'
+          }
+        }
+      })
+    })
+  ],
+  
 }
 

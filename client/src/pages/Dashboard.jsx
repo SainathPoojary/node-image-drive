@@ -1,10 +1,7 @@
-import axios from "axios";
-import React, { useContext, useState } from "react";
-import { useUserContext } from "../context/UserContext";
+import { useState } from "react";
 import { Aside, Header, Main } from "../components";
 
 export default function Dashboard() {
-  const [images, setImages] = useState([]);
   // If Mobile device then false else true
   const [toggle, setToggle] = useState(() => {
     if (window.innerWidth <= 768) {

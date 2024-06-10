@@ -53,7 +53,8 @@ export const register = async (req: Request, res: Response) => {
       .cookie("access_token", token, {
         httpOnly: true,
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
-        sameSite: true,
+        sameSite: "none",
+        secure: true,
       })
       .json({
         name: user.name,
@@ -100,7 +101,8 @@ export const login = async (req: Request, res: Response) => {
       .cookie("access_token", token, {
         httpOnly: true,
         expires: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
-        sameSite: true,
+        sameSite: "none",
+        secure: true,
       })
       .json({
         name: user.name,
@@ -116,7 +118,11 @@ export const login = async (req: Request, res: Response) => {
 
 export const logout = async (req: Request, res: Response) => {
   try {
-    res.clearCookie("access_token", { sameSite: true });
+    res.clearCookie("access_token", {
+      sameSite: "none",
+      secure: true,
+      httpOnly: true,
+    });
     res.status(200).json({
       status: 200,
       code: "logout-success",

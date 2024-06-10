@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useUserContext } from "../context/UserContext";
 
 export default function Aside({ setToggle }) {
@@ -71,7 +71,7 @@ export default function Aside({ setToggle }) {
           </div>
           <button
             onClick={logout}
-            className="flex justify-center items-center space-x-5 bg-primary hover:bg-[#28292e] px-4 py-1 rounded-full w-full"
+            className="flex justify-center items-center space-x-5 bg-primary hover:bg-[#28292e] px-4 py-1.5 rounded-full w-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
